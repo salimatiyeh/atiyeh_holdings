@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "houses/new", to: "houses#new"
   post "houses", to: "houses#create"
+  get "houses", to: "houses#index"
+  get "houses/:id", to: "houses#show"
 end
