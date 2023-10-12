@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "pages#home"
   get "houses/new", to: "houses#new"
+  post "houses", to: "houses#create"
 end
