@@ -1,0 +1,9 @@
+<%= form_with model: @restaurant do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :square_feet  %>
+  <%= f.number_field :square_feet %>
+  <%= f.submit %>
+<% end %>
