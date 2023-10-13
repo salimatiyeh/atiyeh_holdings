@@ -17,12 +17,17 @@ class HousesController < ApplicationController
   end
 
   def show
-    # @house = House.find(params[:id])
     begin
       @house = House.find(params[:id])
+      # Check if the image is attached
+      unless @house.photo.attached?
+        flash[:error] = "Image not found for this house."
+        redirect_to houses_path
+        return
+      end
     rescue ActiveRecord::RecordNotFound
       flash[:error] = "House not found"
-      redirect_to houses_path # Redirect to the index page or handle it as per your needs
+      redirect_to houses_path
     end
   end
 

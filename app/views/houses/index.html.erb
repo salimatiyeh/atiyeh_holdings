@@ -5,6 +5,9 @@
         <div class="card mb-4" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
           <div class="card-body">
             <div class="text-center">
+              <% if house.photo.attached? %>
+                <%= image_tag house.photo, class: "card-image" %>
+              <% end %>
               <h2 class="card-title"><%= house.name %></h2>
               <p class="card-text"><%= house.address %></p>
               <p class="card-text">Square Feet <%= house.square_feet %></p>
@@ -17,4 +20,5 @@
     <% end %>
   </div>
 </div>
+
 
