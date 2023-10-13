@@ -7,7 +7,10 @@
         <p><%= @house.square_feet %></p>
         <p><%= @house.number_of_rooms %></p>
       </div>
+      <div class="button-container mt-3">
+        <%= link_to "Edit", edit_house_path(@house), class: "btn btn-primary" %>
+        <%= link_to "Home", root_path, class: "btn btn-secondary" %>
+      </div>
     </div>
   </div>
 </div>
-

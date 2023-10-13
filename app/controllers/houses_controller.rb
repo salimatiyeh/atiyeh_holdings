@@ -20,8 +20,18 @@ class HousesController < ApplicationController
     @house = House.find(params[:id])
   end
 
-  def editing
+  def edit
     @house = House.find(params[:id])
+  end
+
+  def update
+    @house = House.find(params[:id])
+    if @house.update(house_params)
+      redirect_to house_path(@house)
+    else
+      # Handle validation errors or other issues
+      render 'edit'
+    end
   end
 
   private

@@ -1,57 +1,69 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <div class="form-container p-4 shadow rounded">
+        <%= form_with model: @house do |f| %>
+          <div class="form-container">
+            <div class="form-group">
+              <%= f.label :name %>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
 
-<div class="form-container">
-  <%= form_with model: @house do |f| %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
+            <div class="form-group">
+              <%= f.label :address %>
+              <%= f.text_field :address, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :square_feet %>
+              <%= f.number_field :square_feet, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :has_garage, class: "form-check-label" %>
+              <%= f.check_box :has_garage, class: "form-check-input" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :number_of_rooms %>
+              <%= f.number_field :number_of_rooms, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :number_of_bathrooms %>
+              <%= f.number_field :number_of_bathrooms, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :has_storm_shelter, class: "form-check-label" %>
+              <%= f.check_box :has_storm_shelter, class: "form-check-input" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :rental_amount %>
+              <%= f.number_field :rental_amount, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :has_gas, class: "form-check-label" %>
+              <%= f.check_box :has_gas, class: "form-check-input" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :is_occupied, class: "form-check-label" %>
+              <%= f.check_box :is_occupied, class: "form-check-input" %>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="">
+              <%= link_to "Cancel", root_path, class: "btn btn-secondary" %>
+            </div>
+            <div class="">
+              <%= f.submit "Submit", class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-    <div class="form-group">
-      <%= f.label :address %>
-      <%= f.text_field :address, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :square_feet %>
-      <%= f.number_field :square_feet, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.check_box :has_garage, class: "form-check-input" %>
-      <%= f.label :has_garage, class: "form-check-label" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :number_of_rooms %>
-      <%= f.number_field :number_of_rooms, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.check_box :number_of_bathrooms, class: "form-check-input" %>
-      <%= f.label :number_of_bathrooms, class: "form-check-label" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.check_box :has_storm_shelter, class: "form-check-input" %>
-      <%= f.label :has_storm_shelter, class: "form-check-label" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :rental_amount %>
-      <%= f.number_field :rental_amount, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.check_box :has_gas, class: "form-check-input" %>
-      <%= f.label :has_gas, class: "form-check-label" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.check_box :is_occupied, class: "form-check-input" %>
-      <%= f.label :is_occupied, class: "form-check-label" %>
-    </div>
-
-    <%= link_to "Cancel", root_path, class: "btn btn-secondary" %>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-  <% end %>
+  </div>
 </div>
