@@ -10,6 +10,7 @@
       <div class="button-container mt-3">
         <%= link_to "Edit", edit_house_path(@house), class: "btn btn-primary" %>
         <%= link_to "Home", root_path, class: "btn btn-secondary" %>
+        <%= link_to "Delete", house_path(@house), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
     </div>
   </div>

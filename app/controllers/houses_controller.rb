@@ -17,7 +17,13 @@ class HousesController < ApplicationController
   end
 
   def show
-    @house = House.find(params[:id])
+    # @house = House.find(params[:id])
+    begin
+      @house = House.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:error] = "House not found"
+      redirect_to houses_path # Redirect to the index page or handle it as per your needs
+    end
   end
 
   def edit
@@ -31,6 +37,15 @@ class HousesController < ApplicationController
     else
       # Handle validation errors or other issues
       render 'edit'
+    end
+  end
+
+  def destroy
+    @house = House.find(params[:id])
+    if @house.destroy
+      redirect_to root_path
+    else
+      render 'show'
     end
   end
 
