@@ -1,6 +1,20 @@
-<ul>
-  <% @houses.each do |house| %>
-    <li><%= house.name %></li>
-    <li><%= house.img_url %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="col-12">
+    <% @houses.each do |house| %>
+      <a href="<%= house_path(house) %>" class="card-link">
+        <div class="card mb-4" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <div class="card-body">
+            <div class="text-center">
+              <h2 class="card-title"><%= house.name %></h2>
+              <p class="card-text"><%= house.address %></p>
+              <p class="card-text">Square Feet <%= house.square_feet %></p>
+              <p class="card-text">Number of Rooms <%= house.number_of_rooms %></p>
+              <p class="card-text">Number of Bathrooms <%= house.number_of_bathrooms %></p>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>
+
