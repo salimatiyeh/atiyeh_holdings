@@ -27,13 +27,13 @@
     </div>
 
     <div class="form-group">
-      <%= f.check_box :number_of_bathrooms, class: "form-check-input" %>
       <%= f.label :number_of_bathrooms, class: "form-check-label" %>
+      <%= f.number_field :number_of_bathrooms, class: "form-check-input" %>
     </div>
 
     <div class="form-group">
-      <%= f.check_box :has_storm_shelter, class: "form-check-input" %>
       <%= f.label :has_storm_shelter, class: "form-check-label" %>
+      <%= f.check_box :has_storm_shelter, class: "form-check-input" %>
     </div>
 
     <div class="form-group">
@@ -42,13 +42,13 @@
     </div>
 
     <div class="form-group">
-      <%= f.check_box :has_gas, class: "form-check-input" %>
       <%= f.label :has_gas, class: "form-check-label" %>
+      <%= f.check_box :has_gas, class: "form-check-input" %>
     </div>
 
     <div class="form-group">
-      <%= f.check_box :is_occupied, class: "form-check-input" %>
       <%= f.label :is_occupied, class: "form-check-label" %>
+      <%= f.check_box :is_occupied, class: "form-check-input" %>
     </div>
 
     <%= link_to "Cancel", root_path, class: "btn btn-secondary" %>
