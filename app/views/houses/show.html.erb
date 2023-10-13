@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    <div class="card mb-2">
+    <div class="card mb-2" style="background-image: url('<%= cl_image_path(@house.photo.key, width: 400, height: 300, crop: :fill) if @house.photo.attached? %>');">
       <div class="black-banner">
         <h2><%= @house.name %></h2>
         <p><%= @house.address %></p>
@@ -15,3 +15,4 @@
     </div>
   </div>
 </div>
+
