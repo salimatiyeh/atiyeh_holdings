@@ -1,0 +1,11 @@
+development:
+  cloud_name: "dyrjfe4jo"
+  api_key: "946649262469767"
+  api_secret: "CHEi_xSLxI2Vh1aWzspMVLhUEow"
+  secure: true
+
+production:
+  cloud_name: "dyrjfe4jo"
+  api_key: "946649262469767"
+  api_secret: "CHEi_xSLxI2Vh1aWzspMVLhUEow"
+  secure: true
