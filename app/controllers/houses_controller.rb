@@ -20,6 +20,10 @@ class HousesController < ApplicationController
     @house = House.find(params[:id])
   end
 
+  def editing
+    @house = House.find(params[:id])
+  end
+
   private
 
   def house_params

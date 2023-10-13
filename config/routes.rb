@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post "houses", to: "houses#create"
   # get "houses", to: "houses#index"
   get "houses/:id", to: "houses#show"
+  get "houses/:id/edit", to: "houses#edit"
 end
