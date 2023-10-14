@@ -1,6 +1,6 @@
-<div class="banner">
+<!--<div class="banner">
   <div class="container">
-    <div class="card mb-2" style="background-image: url('<%= cl_image_path(@house.photo.key, width: 400, height: 300, crop: :fill) if @house.photo.attached? %>');">
+    <div class="card mb-2" style="background-image: url('<%= cl_image_path(@house.photo.key, width: 100, height: 300, crop: :fill) if @house.photo.attached? %>');">
       <div class="black-banner">
         <h2><%= @house.name %></h2>
         <p><%= @house.address %></p>
@@ -15,4 +15,24 @@
     </div>
   </div>
 </div>
+-->
 
+<div class="banner">
+  <div class="container">
+    <%# <div class="card mb-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @house.photo.key, height: 300, crop: :fill %>
+      <div class="black-banner">
+        <%= cl_image_tag @house.photo.key, height: 300, width: 400, crop: :fill %>
+
+        <h2><%= @house.name %></h2>
+        <p><%= @house.address %></p>
+        <p><%= @house.square_feet %></p>
+        <p><%= @house.number_of_rooms %></p>
+      </div>
+      <div class="button-container mt-3 mb-2">
+        <%= link_to "Edit", edit_house_path(@house), class: "btn btn-primary" %>
+        <%= link_to "Home", root_path, class: "btn btn-secondary" %>
+        <%= link_to "Delete", house_path(@house), class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </div>
+    </div>
+  </div>
+</div>
