@@ -16,20 +16,29 @@ class HousesController < ApplicationController
     @houses = House.all
   end
 
+  # def show
+  #   begin
+  #     @house = House.find(params[:id])
+  #     unless @house.photo.attached?
+  #       flash[:error] = "Image not found for this house."
+  #       redirect_to houses_path
+  #       return
+  #   end
+  #   rescue ActiveRecord::RecordNotFound
+  #     flash[:error] = "House not found"
+  #     redirect_to houses_path
+  #   end
+  # end
+
   def show
-    begin
-      @house = House.find(params[:id])
-      # Check if the image is attached
-      unless @house.photo.attached?
-        flash[:error] = "Image not found for this house."
-        redirect_to houses_path
-        return
-      end
-    rescue ActiveRecord::RecordNotFound
-      flash[:error] = "House not found"
-      redirect_to houses_path
-    end
+    @house = find_house_or_redirect
+    return unless @house
+
+    return if handle_missing_image
+
+    @house = House.find(params[:id])
   end
+
 
   def edit
     @house = House.find(params[:id])
@@ -58,5 +67,21 @@ class HousesController < ApplicationController
 
   def house_params
     params.require(:house).permit(:name, :address, :square_feet, :number_of_rooms, :number_of_bathrooms, :has_storm_shelter, :has_garage, :rental_amount, :has_gas, :is_occupied, :img_url, :photo)
+  end
+
+  def find_house_or_redirect
+    House.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:error] = "House not found"
+    redirect_to houses_path
+    nil
+  end
+
+  def handle_missing_image
+    unless @house.photo.attached?
+      flash[:error] = "Image not found for this house."
+      redirect_to houses_path
+      true
+    end
   end
 end
