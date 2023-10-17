@@ -1,15 +1,39 @@
 <div class="container">
-  <div class="col-16">
+  <div class="col-16 centered">
     <% @houses.each do |house| %>
       <a href="<%= house_path(house) %>" class="card-link">
         <div class="card mb-4" style="border: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); overflow: hidden;">
           <div class="card-body">
             <div class="text-center">
+                <div class="image-container" style="width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
               <% if house.photo.attached? %>
-                <div class="image-container" style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                   <%= cl_image_tag house.photo.key, class: "card-image", style: "object-fit: cover; max-width: 100%; max-height: 100%;" %>
                 </div>
               <% end %>
+              <h2 class="card-title"><%= house.name %></h2>
+              <p class="card-text"><%= house.address %></p>
+              <p class="card-text">Square Feet <%= house.square_feet %></p>
+              <p class="card-text">Number of Rooms <%= house.number_of_rooms %></p>
+              <p class="card-text">Number of Bathrooms <%= house.number_of_bathrooms %></p>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="col-16 centered">
+    <% @houses.each do |house| %>
+      <a href="<%= house_path(house) %>" class="card-link">
+        <div class="card mb-4" style="border: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); overflow: hidden; height: 650px;">
+          <div class="card-body">
+            <div class="text-center">
+              <div class="image-container" style="width: 100%; height: 400px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;">
+                <% if house.photo.attached? %>
+                  <%= cl_image_tag house.photo.key, class: "card-image", style: "object-fit: contain; width: 100%; height: 100%;" %>
+                <% end %>
+              </div>
               <h2 class="card-title"><%= house.name %></h2>
               <p class="card-text"><%= house.address %></p>
               <p class="card-text">Square Feet <%= house.square_feet %></p>
