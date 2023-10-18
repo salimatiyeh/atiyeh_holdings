@@ -15,6 +15,7 @@
                         wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %> %>
 
               <%= f.number_field :square_feet, class: "form-control" %>
+              <%= f.input :address, input: "Address"%>
 
               <%= f.label :has_garage, class: "form-check-label" %>
               <%= f.check_box :has_garage, class: "form-check-input" %>
