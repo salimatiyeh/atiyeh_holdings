@@ -21,18 +21,28 @@ class HousesController < ApplicationController
     @houses = House.all
   end
 
-  def show
-    @house = find_house_or_redirect
-    return unless @house
+  # def show
+  #   @house = find_house_or_redirect
+  #   return unless @house
 
-    return if handle_missing_image
+  #   return if handle_missing_image
+
+  #   @markers = [{
+  #     lng: @house.longitude,
+  #     lat: @house.latitude,
+  #     info_window_html: render_to_string(partial: "info_window", locals: { house: @house })
+  #   }]
+
+  # end
+
+  def show
+    @house = House.find(params[:id])
 
     @markers = [{
       lng: @house.longitude,
       lat: @house.latitude,
       info_window_html: render_to_string(partial: "info_window", locals: { house: @house })
     }]
-
   end
 
   def edit
@@ -60,7 +70,7 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:name, :address, :square_feet, :number_of_rooms, :number_of_bathrooms, :has_storm_shelter, :has_garage, :rental_amount, :has_gas, :is_occupied, :img_url, :photo)
+    params.require(:house).permit(:name, :address, :square_feet, :number_of_rooms, :number_of_bathrooms, :has_storm_shelter, :has_garage, :rental_amount, :has_gas, :is_occupied, :img_url, :photo, :longitude, :latitude)
   end
 
   def find_house_or_redirect
