@@ -19,6 +19,13 @@ class HousesController < ApplicationController
 
   def index
     @houses = House.all
+
+    @markers = @houses.geocoded.map do |house|
+      {
+        lat: house.latitude,
+        lng: house.longitude
+      }
+    end
   end
 
   # def show
@@ -37,7 +44,7 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
-
+    handle_missing_image if @house.photo.blank?
     @markers = [{
       lng: @house.longitude,
       lat: @house.latitude,
