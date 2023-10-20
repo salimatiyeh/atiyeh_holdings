@@ -12,7 +12,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Add house", new_house_path, class: "nav-link" %>
+          <%= link_to new_house_path, class: "nav-link" do %>
+            <i class="fa-sharp fa-regular fa-plus fa-lg"></i> New house
+          <% end %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
