@@ -5,40 +5,34 @@
       <div class="form-container p-4 shadow rounded">
         <%= simple_form_for @house do |f| %>
           <div class="form-container">
-              <%= f.input :name, label: "Name" %>
+            <%= f.input :name, label: "Name", required: true %>
 
-              <%= f.number_field :square_feet, class: "form-control" %>
-              <%= f.input :address, input: "Address"%>
+            <%= f.input :square_feet, class: "form-control", label: "Square Feet", required: true %>
 
+            <%= f.input :address, input: "Address", required: true %>
+            <%= f.input :rental_amount, class: "form-control", required: true %>
+            <%= f.input :number_of_rooms, class: "form-control", required: true %>
+            <%= f.input :number_of_bathrooms, label: "Bathrooms", class: "form-control", required: true %>
+            <div class="row">
               <%= f.label :has_garage, class: "form-check-label" %>
-              <%= f.check_box :has_garage, class: "form-check-input" %>
-
-              <%= f.label :number_of_rooms %>
-              <%= f.number_field :number_of_rooms, class: "form-control" %>
-
-              <%= f.label :number_of_bathrooms %>
-              <%= f.number_field :number_of_bathrooms, class: "form-control" %>
+              <%= f.check_box :has_garage, class: "form-check-input", label: "Garage?" %>
 
               <%= f.label :has_storm_shelter, class: "form-check-label" %>
               <%= f.check_box :has_storm_shelter, class: "form-check-input" %>
 
-              <%= f.label :rental_amount %>
-              <%= f.number_field :rental_amount, class: "form-control" %>
-
               <%= f.label :has_gas, class: "form-check-label" %>
-              <%= f.check_box :has_gas, class: "form-check-input" %>
-
+              <%= f.check_box :has_gas, class: "form-check-input", label: "Has gas" %>
+              
               <%= f.label :is_occupied, class: "form-check-label" %>
               <%= f.check_box :is_occupied, class: "form-check-input" %>
-
-              <%= f.label :photo %>
-              <%= f.file_field :photo %>
+            </div>
+            <%= f.input :photo, class: "mb-4", label: "Upload Photo", required: true %>
           </div>
           <div class="d-flex justify-content-between">
-            <div class="">
+            <div>
               <%= link_to "Cancel", root_path, class: "btn btn-secondary" %>
             </div>
-            <div class="">
+            <div>
               <%= f.submit "Submit", class: "btn btn-primary" %>
             </div>
           </div>
@@ -47,20 +41,3 @@
     </div>
   </div>
 </div>
-<!--
-<%= simple_form_for(@house) do |f| %>
-<%= f.error_notification %>
-<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-<div class="form-inputs">
-  <%= f.input :name %>
-  <%= f.input :address,
-              input_html: {data: {address_autocomplete_target: "address"}},
-              wrapper_html: {data: {controller: "address_autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-              %>
-</div>
-<div class="form_actions">
-  <%= f.button :submit %>
-</div>
-<% end %>
--->
-<%= render 'form', house: @house %>
