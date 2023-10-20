@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get "houses/:id/edit", to: "houses#edit"
   patch "houses/:id", to: "houses#update"
   delete "houses/:id", to: "houses#destroy"
+
+  get "users/new", to: "users#new"
 end
