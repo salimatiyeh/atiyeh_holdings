@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 col-lg-8 ">
       <% @houses.each do |house| %>
-        <a href="<%= house_path(house) %>" class="card-link">
+        <a href="<%= house_path(house) %>" class="card-link" style="text-decoration: none;">
           <div class="card mb-4" style="border: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); overflow: hidden;">
             <div class="card-body">
               <div class="text-center">
@@ -12,11 +12,13 @@
                   <% end %>
                 </div>
                 <div>
-                  <h2 class="card-title"><%= house.name %></h2>
-                  <p class="card-text"><%= house.address %></p>
-                  <p class="card-text">Square Feet <%= house.square_feet %></p>
-                  <p class="card-text">Number of Rooms <%= house.number_of_rooms %></p>
-                  <p class="card-text">Number of Bathrooms <%= house.number_of_bathrooms %></p>
+                  <h2 class="card-title no-underline"><%= house.name %></h2>
+                  <p class="info-line no-underline">
+                    <span class="no-underline"><%= house.number_of_rooms %> bds</span> |
+                    <span class="no-underline"><%= house.number_of_bathrooms %> ba</span> |
+                    <span class="no-underline"><%= house.square_feet %> sqft</span>
+                  </p>
+                  <p class="card-text no-underline"><%= house.address %></p>
                 </div>
               </div>
             </div>
@@ -34,6 +36,7 @@
     </div>
   </div>
 </div>
+
 
 <!--
 <div class="container mx-auto mt-4">
