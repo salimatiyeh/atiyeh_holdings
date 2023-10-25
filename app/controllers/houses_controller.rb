@@ -3,14 +3,6 @@ class HousesController < ApplicationController
     @house = House.new
   end
 
-  # def create
-  #   @house = House.new(house_params)
-  #   if @house.save
-  #     redirect_to house_path(@house)
-  #   else
-  #     render 'new'
-  #   end
-  # end
   def create
     @house = House.new(house_params)
     @house.save
@@ -27,20 +19,6 @@ class HousesController < ApplicationController
       }
     end
   end
-
-  # def show
-  #   @house = find_house_or_redirect
-  #   return unless @house
-
-  #   return if handle_missing_image
-
-  #   @markers = [{
-  #     lng: @house.longitude,
-  #     lat: @house.latitude,
-  #     info_window_html: render_to_string(partial: "info_window", locals: { house: @house })
-  #   }]
-
-  # end
 
   def show
     @house = House.find(params[:id])
