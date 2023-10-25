@@ -5,8 +5,11 @@ class HousesController < ApplicationController
 
   def create
     @house = House.new(house_params)
-    @house.save
-    redirect_to house_path(@house)
+    if @house.save
+      redirect_to house_path(@house), notice: "Restaurant was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def index
