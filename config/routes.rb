@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   patch "houses/:id", to: "houses#update"
   delete "houses/:id", to: "houses#destroy"
 
-  get "users/new", to: "users#new"
+  get "users/show", to: "users#show"
 end
