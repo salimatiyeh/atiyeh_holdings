@@ -6,7 +6,7 @@ class HousesController < ApplicationController
   def create
     @house = House.new(house_params)
     if @house.save
-      redirect_to house_path(@house), notice: "Restaurant was successfully created."
+      redirect_to house_path(@house), notice: "House was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,6 +22,12 @@ class HousesController < ApplicationController
       }
     end
   end
+
+  # def index_maintenance
+  #   @house = House.find(params[:id])
+
+  #   @house.maintenances
+  # end
 
   def show
     @house = House.find(params[:id])
