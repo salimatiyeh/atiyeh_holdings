@@ -1,4 +1,5 @@
 class House < ApplicationRecord
+  has_many :maintenances
   geocoded_by :address
   has_one_attached :photo
 

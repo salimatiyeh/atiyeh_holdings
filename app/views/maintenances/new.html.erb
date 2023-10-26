@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <div class="form-container p-4 shadow rounded">
+        <%= simple_form_for @maintenance do |f| %>
+          <div class="form-container">
+            <% f.input :title, label: "Title", required: true %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
