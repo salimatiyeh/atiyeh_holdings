@@ -5,6 +5,9 @@ ruby "3.1.2"
 gem "devise"
 gem "cloudinary"
 gem "geocoder"
+# gem "pry"
+gem 'binding_of_caller'
+gem 'pry-rails'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
 
