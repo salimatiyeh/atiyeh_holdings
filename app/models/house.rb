@@ -1,5 +1,5 @@
 class House < ApplicationRecord
-  has_many :maintenances
+  has_many :maintenances, dependent: :destroy
   geocoded_by :address
   has_one_attached :photo
 

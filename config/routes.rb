@@ -18,31 +18,7 @@ Rails.application.routes.draw do
   get "maintenances/new", to: "maintenances#new"
   post "maintenances", to: "maintenances#create"
   get "houses/:id/maintenances", to: "maintenances#index"
+  get "houses/:house_id/maintenances/:id", to: "maintenances#show"
 
   get "users/show", to: "users#show"
 end
-
-# Rails.application.routes.draw do
-#   devise_for :users
-
-#   resources :maintenances do
-#     collection do
-#       get :new
-#     end
-#   end
-#   resources :houses do
-#     collection do
-#       get :index
-#       get :new
-#       post :create
-#       get :show
-#       get :edit
-#       patch :update
-#       delete :destroy
-#     end
-
-#     members do
-
-#     end
-#   end
-# end

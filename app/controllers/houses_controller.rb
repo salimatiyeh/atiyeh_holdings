@@ -23,12 +23,6 @@ class HousesController < ApplicationController
     end
   end
 
-  # def index_maintenance
-  #   @house = House.find(params[:id])
-
-  #   @house.maintenances
-  # end
-
   def show
     @house = House.find(params[:id])
     handle_missing_image if @house.photo.blank?
