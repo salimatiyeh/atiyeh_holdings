@@ -1,1 +1,17 @@
 this is the index page for maintenances
+
+
+
+<h2>Maintenance tickets for <%= @maintenances.first.house.name %></h2>
+<ul>
+  <% @maintenances.each do |maintenance| %>
+    <a>
+      <h4>
+        <li><%= maintenance.title %></li>
+      </h4>
+      <h5>
+        <li><%= maintenance.description %></li>
+      </h5>
+    </a>
+  <% end %>
+</ul>
