@@ -7,8 +7,7 @@
           <div class="form-container">
             <%= f.input :title, label: "Title", required: true %>
             <%= f.input :description, label: "Description", required: true %>
-            <%# <% f.hidden_field :user_id, value: @house.user_id %>
-            <%# <% f.hidden_field :house_id, value: @house.id %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           </div>
           <div class="d-flex justify-content-between">
             <div>

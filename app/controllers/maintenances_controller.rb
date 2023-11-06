@@ -10,6 +10,9 @@ class MaintenancesController < ApplicationController
     @house = House.find(params[:house_id])
     @maintenance.house = @house
     # @maintenance.user = current_user
+    params[:maintenance][:photos].each do |photo|
+      @maintenance.photos.attach(photo)
+    end
     if @maintenance.save
       redirect_to house_path(@house), notice: "Maintenance ticket was successfully created."
     else
@@ -47,6 +50,7 @@ class MaintenancesController < ApplicationController
       :time_stamp,
       :created_at,
       :updated_at,
+      photos: []
     )
   end
 end
