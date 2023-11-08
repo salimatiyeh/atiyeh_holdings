@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <div class="form-container p-4 shadow rounded">
+        <div>
+          <h4>
+            <%= @maintenance.title %>
+          </h4>
+        </div>
+        <div>
+          <h5>
+            <%= @maintenance.description %>
+          </h5>
+        </div>
+        <div>
+          <%# <% if @maintenance.photos.attached? %>
+          <% @maintenance.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+          <%# <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

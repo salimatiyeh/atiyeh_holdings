@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "maintenances/new", to: "maintenances#new"
   post "maintenances", to: "maintenances#create"
   get "houses/:id/maintenances", to: "maintenances#index"
-  get "houses/:house_id/maintenances/:id", to: "maintenances#show"
+  get "houses/:id/maintenances/:id", to: "maintenances#show"
 
   get "users/show", to: "users#show"
 end

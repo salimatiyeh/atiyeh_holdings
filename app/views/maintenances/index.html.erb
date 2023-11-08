@@ -4,7 +4,7 @@
       <div class="form-container p-4 shadow rounded">
           <% @maintenances.each do |maintenance| %>
             <div>
-              <a>
+              <a href="<%= maintenance_path(maintenance) %>">
                 <div>
                   <h4>
                     <%= maintenance.title %>
@@ -15,13 +15,13 @@
                     <%= maintenance.description %>
                   </h5>
                 </div>
-              </a>
             </div>
               <% if maintenance.photos.attached? %>
             <% maintenance.photos.each do |photo| %>
               <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
           <% end %>
         <% end %>
+              </a>
         <% end %>
       </div>
     </div>

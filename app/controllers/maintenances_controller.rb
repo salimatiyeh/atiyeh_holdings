@@ -31,7 +31,7 @@ class MaintenancesController < ApplicationController
   end
 
   def show
-    @maintenance = Maintenance.find(params[:house_id])
+    @maintenance = Maintenance.find(params[:id])
     @house = @maintenance.house
   end
 
