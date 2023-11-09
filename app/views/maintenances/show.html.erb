@@ -13,11 +13,11 @@
           </h5>
         </div>
         <div>
-          <%# <% if @maintenance.photos.attached? %>
+          <% if @maintenance.photos.attached? %>
           <% @maintenance.photos.each do |photo| %>
             <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
           <% end %>
-          <%# <% end %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,29 +1,19 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <div class="form-container p-4 shadow rounded">
-          <% @maintenances.each do |maintenance| %>
-            <div>
-              <a href="<%= maintenance_path(maintenance) %>">
-                <div>
-                  <h4>
-                    <%= maintenance.title %>
-                  </h4>
-                </div>
-                <div>
-                  <h5>
-                    <%= maintenance.description %>
-                  </h5>
-                </div>
-            </div>
-              <% if maintenance.photos.attached? %>
-            <% maintenance.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-          <% end %>
-        <% end %>
-              </a>
-        <% end %>
-      </div>
+      <% @maintenances.each do |maintenance| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= maintenance.title %></h5>
+            <% if maintenance.photos.attached? %>
+              <% maintenance.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
+              <% end %>
+            <% end %>
+          </div>
+          <a href="<%= maintenance_path(maintenance) %>" class="btn btn-primary">View Details</a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
