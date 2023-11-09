@@ -22,11 +22,12 @@
 
               <%= f.label :has_gas, class: "form-check-label" %>
               <%= f.check_box :has_gas, class: "form-check-input", label: "Has gas" %>
-              
+
               <%= f.label :is_occupied, class: "form-check-label" %>
               <%= f.check_box :is_occupied, class: "form-check-input" %>
             </div>
-            <%= f.input :photo, class: "mb-4", label: "Upload Photo", required: true %>
+            <%# <%= f.input :photos, class: "mb-4", label: "Upload Photo", required: true %> %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true %>
           </div>
           <div class="d-flex justify-content-between">
             <div>

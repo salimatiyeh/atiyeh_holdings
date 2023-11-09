@@ -5,6 +5,10 @@ class HousesController < ApplicationController
 
   def create
     @house = House.new(house_params)
+    # raise
+    # params[:photos].each do |photo|
+    #   @house.photo.attach(photo)
+    # end
     if @house.save
       redirect_to house_path(@house), notice: "House was successfully created."
     else
@@ -25,7 +29,7 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
-    handle_missing_image if @house.photo.blank?
+    handle_missing_image if @house.photos.blank?
     @markers = [{
       lng: @house.longitude,
       lat: @house.latitude,
@@ -70,9 +74,9 @@ class HousesController < ApplicationController
       :has_gas,
       :is_occupied,
       :img_url,
-      :photo,
       :longitude,
-      :latitude
+      :latitude,
+      photos: []
     )
   end
 
@@ -85,7 +89,7 @@ class HousesController < ApplicationController
   end
 
   def handle_missing_image
-    return if @house.photo.attached?
+    return if @house.photos.attached?
 
     flash[:error] = "Image not found for this house."
     redirect_to houses_path

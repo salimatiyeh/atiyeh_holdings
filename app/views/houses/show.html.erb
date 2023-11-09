@@ -1,11 +1,9 @@
-<div class="container">
+`<div class="container">
   <div class="row">
     <div class="col-12 col-lg-8">
-      <div class="card rounded shadow">
-        <% if @house.photo.attached? %>
-          <%= cl_image_tag @house.photo.key, height: 400, width: 854, crop: :fill %>
-        <% else %>
-          <p>No image available</p>
+      <div class="card rounded shadow">`
+        <% @house.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 400, width: 854, crop: :fill %>
         <% end %>
         <h2><%= @house.name %></h2>
         <p><%= @house.address %></p>
@@ -29,4 +27,3 @@
     </div>
   </div>
 </div>
-
