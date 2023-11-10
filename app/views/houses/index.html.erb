@@ -7,8 +7,8 @@
             <div class="card-body">
               <div class="text-center">
                 <div class="image-container" style="width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                  <% house.photos.each do |photo| %>
-                    <%= cl_image_tag photo.key, class: "card-image", style: "object-fit: cover; max-width: 100%; max-height: 100%;" %>
+                  <% if house.photos.attached? && house.photos.any? %>
+                    <%= cl_image_tag house.photos.first.key, class: "card-image", style: "object-fit: cover; max-width: 100%; max-height: 100%;" %>
                   <% end %>
                 </div>
                 <div>
