@@ -7,7 +7,7 @@ class MaintenancesController < ApplicationController
 
   def create
     @maintenance = Maintenance.new(maintenance_params)
-    @house = House.find(params[:house_id])
+    # @house = House.find(params[:house_id])
     @maintenance.house = @house
     # @maintenance.user = current_user
     if @maintenance.save

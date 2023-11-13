@@ -14,11 +14,13 @@ Rails.application.routes.draw do
   patch "houses/:id", to: "houses#update"
   delete "houses/:id", to: "houses#destroy"
 
-  # get "houses/:id/index_maintenance", to: "houses#index_maintenance"
   get "maintenances/new", to: "maintenances#new"
   post "maintenances", to: "maintenances#create"
   get "houses/:id/maintenances", to: "maintenances#index"
   get "houses/:id/maintenances/:id", to: "maintenances#show"
+
+  get "expenses/new", to: "expenses#new"
+  post "expenses", to: "expenses#create"
 
   get "users/show", to: "users#show"
 end

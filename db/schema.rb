@@ -43,8 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_13_164222) do
   end
 
   create_table "expenses", force: :cascade do |t|
-    t.string "type_type"
-    t.bigint "type_id"
+    t.bigint "house_id"
     t.string "title"
     t.text "description"
     t.decimal "amount", precision: 10, scale: 2, default: "0.0", null: false
@@ -53,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_13_164222) do
     t.string "document"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["type_type", "type_id"], name: "index_expenses_on_type"
+    t.index ["house_id"], name: "index_expenses_on_house_id"
   end
 
   create_table "houses", force: :cascade do |t|
@@ -104,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_13_164222) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "expenses", "houses"
   add_foreign_key "houses", "users"
   add_foreign_key "maintenances", "houses"
   add_foreign_key "maintenances", "users"
