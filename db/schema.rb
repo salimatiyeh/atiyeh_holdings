@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_31_134439) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_13_164222) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_31_134439) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.string "type_type"
+    t.bigint "type_id"
+    t.string "title"
+    t.text "description"
+    t.decimal "amount", precision: 10, scale: 2, default: "0.0", null: false
+    t.string "category"
+    t.datetime "expense_date"
+    t.string "document"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_type", "type_id"], name: "index_expenses_on_type"
   end
 
   create_table "houses", force: :cascade do |t|
