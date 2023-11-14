@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get "expenses/new", to: "expenses#new"
   post "expenses", to: "expenses#create"
+  get "houses/:id/expenses/:id", to: "expenses#show"
 
   get "users/show", to: "users#show"
 end
