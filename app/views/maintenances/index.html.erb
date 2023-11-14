@@ -2,6 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <% @maintenances.each do |maintenance| %>
+        <a href="<%= maintenance_path(maintenance) %>">
         <div class="card mb-3">
           <div class="card-body">
             <h5 class="card-title"><%= maintenance.title %></h5>
@@ -11,8 +12,8 @@
               <% end %>
             <% end %>
           </div>
-          <a href="<%= maintenance_path(maintenance) %>" class="btn btn-primary">View Details</a>
         </div>
+        </a>
       <% end %>
     </div>
   </div>
