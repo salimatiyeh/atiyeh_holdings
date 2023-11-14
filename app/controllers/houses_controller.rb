@@ -73,6 +73,7 @@ class HousesController < ApplicationController
       :img_url,
       :longitude,
       :latitude,
+      :user_id,
       photos: []
     )
   end
