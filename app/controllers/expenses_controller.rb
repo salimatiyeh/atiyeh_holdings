@@ -5,6 +5,7 @@ class ExpensesController < ApplicationController
 
   def create
     @expense = Expense.new(expense_params)
+    @expense.user_id = current_user.id
     if @expense.save
       redirect_to root_path, notice: "successfully created"
     else
@@ -35,5 +36,4 @@ class ExpensesController < ApplicationController
       :house_id
     )
   end
-
 end
