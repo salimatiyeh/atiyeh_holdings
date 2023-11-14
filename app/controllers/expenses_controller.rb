@@ -3,19 +3,11 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
   end
 
-  # def create
-  #   @expense = Expense.new(expense_params)
-  #   @expense.save
-  #   redirect_to root_path
-  # end
-
   def create
     @expense = Expense.new(expense_params)
-    # raise
     if @expense.save
       redirect_to root_path, notice: "successfully created"
     else
-      puts @expense.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
@@ -29,7 +21,8 @@ class ExpensesController < ApplicationController
       :amount,
       :category,
       :expense_date,
-      :document
+      :document,
+      :house_id
     )
   end
 
