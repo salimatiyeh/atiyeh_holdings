@@ -7,9 +7,8 @@ class MaintenancesController < ApplicationController
 
   def create
     @maintenance = Maintenance.new(maintenance_params)
-    # @house = House.find(params[:house_id])
     @maintenance.house = @house
-    # @maintenance.user = current_user
+    @maintenance.user_id = current_user.id
     if @maintenance.save
       redirect_to house_path(@house), notice: "Maintenance ticket was successfully created."
     else
