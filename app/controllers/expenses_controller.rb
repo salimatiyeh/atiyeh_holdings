@@ -17,6 +17,11 @@ class ExpensesController < ApplicationController
     @house = @expense.house
   end
 
+  def index
+    @house = House.find(params[:house_id])
+    @expenses = @house.expenses
+  end
+
   private
 
   def expense_params

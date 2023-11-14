@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <% @expenses.each do |expense| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= expense.title %></h5>
+          </div>
+          <a href="<%= house_expense_path(@house, expense) %>" class="btn btn-primary">View Details</a>
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
