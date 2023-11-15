@@ -48,7 +48,8 @@ class ExpensesController < ApplicationController
       :category,
       :expense_date,
       :document,
-      :house_id
+      :house_id,
+      :business
     )
   end
 end
