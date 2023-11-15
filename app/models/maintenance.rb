@@ -4,5 +4,5 @@ class Maintenance < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-
+  validates :photos, presence: true
 end

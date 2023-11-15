@@ -20,6 +20,7 @@
       <div>
         <%= cl_image_tag @expense.document.key, height: 300, width: 400, crop: :fill %>
       </div>
+        <%= link_to "Edit", edit_house_expense_path(@house, @expense), class: "btn btn-primary" %>
     </div>
   </div>
 </div>

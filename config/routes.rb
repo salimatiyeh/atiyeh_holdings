@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :maintenances
   resources :houses do
     resources :maintenances, only: [:new, :create]
-  end
-  resources :houses do
     resources :expenses
   end
 
@@ -26,6 +24,7 @@ Rails.application.routes.draw do
   post "expenses", to: "expenses#create"
   get "houses/:id/expenses/:id", to: "expenses#show"
   get "houses/:id/expenses", to: "expenses#index"
+  # patch "houses/:id/expenses/:id/edit", to: "expenses#edit"
 
   get "users/show", to: "users#show"
 end

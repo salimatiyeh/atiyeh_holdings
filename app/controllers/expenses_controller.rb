@@ -23,6 +23,21 @@ class ExpensesController < ApplicationController
     @expenses = @house.expenses
   end
 
+  def edit
+    @house = House.find(params[:house_id])
+    @expense = @house.expenses.find(params[:id])
+  end
+
+  def update
+    @house = House.find(params[:house_id])
+    @expense = @house.expenses.find(params[:id])
+    if @expense.update(expense_params)
+      redirect_to house_expense_path(@house, @expense), notice: "Expense updated successfully."
+    else
+      render :edit
+    end
+  end
+
   private
 
   def expense_params
