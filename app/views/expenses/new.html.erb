@@ -5,11 +5,11 @@
         <h1>Create new expense</h1>
         <%= simple_form_for @expense do |f| %>
           <div class="form-container">
+            <%= f.input :house_id, as: :select, collection: House.all.pluck(:name, :id), prompt: 'Select House', label: "House" %>
+            <%= f.input :category, as: :select, collection: ["Maintenance", "Utilities", "Supplies", "Repairs"], prompt: 'Select Category', label: "Category", required: true %>
             <%= f.input :title, label: "Title", required: true %>
             <%= f.input :description, label: "Description", required: true %>
-            <%= f.input :category, label: "Category", required: true %>
             <%= f.input :amount, label: "Amount", required: true %>
-            <%= f.input :house_id, as: :select, collection: House.all.pluck(:name, :id), prompt: 'Select House', label: "House" %>
             <%= f.input :document, as: :file, required: false %>
           </div>
           <div class="d-flex justify-content-between">
