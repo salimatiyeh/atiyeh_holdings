@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :maintenances, only: [:new, :create]
   end
 
+  get 'api/test', to: 'api/test#index'
+
   root to: "houses#index"
   get "houses/new", to: "houses#new"
   post "houses", to: "houses#create"
