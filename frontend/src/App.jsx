@@ -1,22 +1,17 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Houses from "./components/Houses.jsx";
+import HouseDetails from "./components/HouseDetails.jsx";
 
-function App() {
-  // const [testResponse, setTestResponse] = useState(null);
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const reponse = await fetch("http://localhost:3000/api/test");
-        const testResponse = await reponse.json();
-        console.log(testResponse);
-        // setTestResponse(await reponse.json());
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, []);
-
-  return <div>Hello World!!</div>;
-}
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/houses/:id" element={<HouseDetails />} />
+        <Route path="/houses" element={<Houses />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;
