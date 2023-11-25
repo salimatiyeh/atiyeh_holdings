@@ -5,9 +5,24 @@
         <h1>Create new expense</h1>
         <%= simple_form_for @expense do |f| %>
           <div class="form-container">
-            <%= f.input :business, as: :select, collection: [["Business", true], ["House", false]], label: "Expense Type", required: true, id: "expense-type" %>
-            <%= f.input :house_id, as: :select, collection: House.all.pluck(:name, :id), prompt: 'Select House', label: "House" %>
-            <%= f.input :category, as: :select, collection: ["Maintenance", "Utilities", "Supplies", "Repairs"], prompt: 'Select Category', label: "Category", required: true %>
+            <div>
+              <div data-controller="house">
+                <button data-action="click->house#fire" class="mb-3 btn btn-primary">House expense</button>
+                <div data-house-target="toggleableElement" class="d-none">
+                  <%= render "house", expense: @expense %>
+                </div>
+              </div>
+              <div data-controller="business">
+                <button data-action="click->business#fire" class="mb-4 btn btn-primary">Business expense</button>
+                <div data-business-target="toggleableElementTwo" class="d-none">
+                  <%= render "business", expense: @expense %>
+                </div>
+              </div>
+            </div>
+            <%# <%= f.input :business, as: :select, collection: ["Tax", "Insurance", "Supplies", "Gas"]%>
+            <%# <%= f.input :business, as: :select, collection: [["Business", true], ["House", false]], label: "Expense Type", required: true, id: "expense-type" %>
+            <%# <%= f.input :house_id, as: :select, collection: House.all.pluck(:name, :id), prompt: 'Select House', label: "House" %>
+            <%# <%= f.input :category, as: :select, collection: ["Maintenance", "Utilities", "Supplies", "Repairs"], prompt: 'Select Category', label: "Category", required: true %>
             <%= f.input :title, label: "Title", required: true %>
             <%= f.input :description, label: "Description", required: true %>
             <%= f.input :amount, label: "Amount", required: true %>
