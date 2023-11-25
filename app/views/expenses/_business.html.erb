@@ -1,0 +1,3 @@
+<%= simple_form_for @expense do |f| %>
+  <%= f.input :category, as: :select, collection: ["Tax", "Insurance", "Supplies", "Gas"]%>
+<% end %>
