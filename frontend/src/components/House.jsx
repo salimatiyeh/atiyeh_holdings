@@ -7,10 +7,11 @@ import { useParams } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import CardActions from "@mui/material/CardActions";
 
-function House() {
+function House(props) {
+  const { editing } = props;
   const { id } = useParams();
   const [house, setHouse] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(editing);
   const [editedHouse, setEditedHouse] = useState({ ...house });
 
   useEffect(() => {
@@ -89,7 +90,7 @@ function House() {
       {house && (
         <div style={{ padding: "20px 15px" }}>
           <Typography variant="h4" paragraph>
-            {isEditing ? <EditField value="name" /> : house.name}
+            <EditField value="name" />
           </Typography>
           <Typography variant="body1" paragraph>
             {isEditing ? (
