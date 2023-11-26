@@ -36,5 +36,27 @@ module Api
         render status: :unprocessable_entity
       end
     end
+
+    private
+
+  def house_params
+    params.require(:house).permit(
+      :name,
+      :address,
+      :square_feet,
+      :number_of_rooms,
+      :number_of_bathrooms,
+      :has_storm_shelter,
+      :has_garage,
+      :rental_amount,
+      :has_gas,
+      :is_occupied,
+      :img_url,
+      :longitude,
+      :latitude,
+      :user_id,
+      photos: []
+    )
+  end
   end
 end
