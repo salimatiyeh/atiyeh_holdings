@@ -20,7 +20,7 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
   {
     id: 4,
@@ -68,7 +68,7 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
   {
     id: 5,
@@ -84,7 +84,7 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
   {
     id: 6,
@@ -100,7 +100,7 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
   {
     id: 7,
@@ -116,7 +116,7 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
   {
     id: 8,
@@ -132,7 +132,7 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
   {
     id: 9,
@@ -148,7 +148,7 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
   {
     id: 10,
@@ -164,6 +164,6 @@ houses = House.create([
     is_occupied: false,
     img_url: nil,
     latitude: 35.49786372287685,
-    longitude: -97.62568861004102>,
+    longitude: -97.62568861004102
   },
 ])
