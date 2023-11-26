@@ -17,7 +17,6 @@ function House() {
     async function fetchData() {
       const response = await fetch(`http://localhost:3000/api/houses/${id}`);
       const houseResponse = await response.json();
-      console.log(response, houseResponse);
       setHouse(houseResponse);
     }
     fetchData();
@@ -49,20 +48,18 @@ function House() {
       }
     );
     const houseResponse = await response.json();
+    setHouse(houseResponse);
     return houseResponse;
   }
 
   function handleCancel() {
     console.log("edit clicked");
     setIsEditing(false);
-    // Reset the editedHouse to the original house data
     setEditedHouse({ ...house });
   }
 
   function handleSave() {
-    // Save the edited house data
-    const response = onSave(house.id, editedHouse);
-    console.log(response);
+    onSave(house.id, editedHouse);
     setIsEditing(false);
   }
 
