@@ -11,13 +11,14 @@ function House() {
   const { id } = useParams();
   const [house, setHouse] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [editedHouse, setEditedHouse] = useState({ ...house });
+  const [editedHouse, setEditedHouse] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(`http://localhost:3000/api/houses/${id}`);
       const houseResponse = await response.json();
       setHouse(houseResponse);
+      setEditedHouse(houseResponse);
     }
     fetchData();
   }, []);
@@ -63,7 +64,8 @@ function House() {
     setIsEditing(false);
   }
 
-  function handleFieldChange(field, value) {
+  function handleFieldChange(event, field, value) {
+    event.preventDefault();
     setEditedHouse((prevHouse) => ({
       ...prevHouse,
       [field]: value,
@@ -79,7 +81,7 @@ function House() {
       <TextField
         label={capitalizeFirstLetter(value)}
         value={editedHouse[value]}
-        onChange={(e) => handleFieldChange(value, e.target.value)}
+        onChange={(e) => handleFieldChange(e, value, e.target.value)}
       />
     );
   }
