@@ -5,6 +5,20 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+users = User.create!(
+  {
+    email: "atiyeh@gmail.com",
+    password: "password",
+    encrypted_password: "",
+    reset_password_token: "",
+    reset_password_sent_at: "",
+    remember_created_at: "",
+    first_name: "",
+    last_name: "",
+  }
+)
+
+
 houses = House.create([
   {
     id: 1,
@@ -19,6 +33,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
@@ -35,6 +50,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
@@ -51,6 +67,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
@@ -67,6 +84,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
@@ -83,6 +101,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
@@ -99,6 +118,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
@@ -115,6 +135,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
@@ -131,6 +152,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
@@ -147,6 +169,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
@@ -163,6 +186,7 @@ houses = House.create([
     has_gas: true,
     is_occupied: false,
     img_url: nil,
+    user_id: 1,
     latitude: 35.49786372287685,
     longitude: -97.62568861004102
   },
