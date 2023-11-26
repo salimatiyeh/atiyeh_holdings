@@ -5,10 +5,8 @@ class HousesController < ApplicationController
 
   def create
     @house = House.new(house_params)
-    # raise
-    # params[:photos].each do |photo|
-    #   @house.photo.attach(photo)
-    # end
+    @house.user_id = current_user.id
+
     if @house.save
       redirect_to house_path(@house), notice: "House was successfully created."
     else
@@ -76,6 +74,7 @@ class HousesController < ApplicationController
       :img_url,
       :longitude,
       :latitude,
+      :user_id,
       photos: []
     )
   end

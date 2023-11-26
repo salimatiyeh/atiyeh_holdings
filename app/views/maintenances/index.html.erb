@@ -1,19 +1,26 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <% @maintenances.each do |maintenance| %>
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><%= maintenance.title %></h5>
-            <% if maintenance.photos.attached? %>
-              <% maintenance.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
-              <% end %>
-            <% end %>
-          </div>
-          <a href="<%= maintenance_path(maintenance) %>" class="btn btn-primary">View Details</a>
-        </div>
-      <% end %>
+      <div class="text-center">
+        <% if @maintenances.any? %>
+          <% @maintenances.each do |maintenance| %>
+            <a href="<%= maintenance_path(maintenance) %>">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title"><%= maintenance.title %></h5>
+                  <% if maintenance.photos.attached? %>
+                    <% maintenance.photos.each do |photo| %>
+                      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </a>
+          <% end %>
+        <% else %>
+          <h4>No maintenance tickets created for this house yet.</h4>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

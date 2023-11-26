@@ -3,20 +3,38 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
   end
 
-  # def create
-  #   @expense = Expense.new(expense_params)
-  #   @expense.save
-  #   redirect_to root_path
-  # end
-
   def create
     @expense = Expense.new(expense_params)
-    # raise
+    @expense.user_id = current_user.id
     if @expense.save
       redirect_to root_path, notice: "successfully created"
     else
-      puts @expense.errors.full_messages
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @expense = Expense.find(params[:id])
+    @house = @expense.house
+  end
+
+  def index
+    @house = House.find(params[:house_id])
+    @expenses = @house.expenses
+  end
+
+  def edit
+    @house = House.find(params[:house_id])
+    @expense = @house.expenses.find(params[:id])
+  end
+
+  def update
+    @house = House.find(params[:house_id])
+    @expense = @house.expenses.find(params[:id])
+    if @expense.update(expense_params)
+      redirect_to house_expense_path(@house, @expense), notice: "Expense updated successfully."
+    else
+      render :edit
     end
   end
 
@@ -29,8 +47,9 @@ class ExpensesController < ApplicationController
       :amount,
       :category,
       :expense_date,
-      :document
+      :document,
+      :house_id,
+      :business
     )
   end
-
 end

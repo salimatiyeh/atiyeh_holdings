@@ -4,7 +4,7 @@ class Expense < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :category, presence: true
+  validates :category, presence: false
   validates :amount, presence: true
   validates :document, presence: false
 end

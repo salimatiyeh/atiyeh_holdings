@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <div class="text-center">
+        <% if @expenses.any? %>
+          <% @expenses.each do |expense| %>
+            <a href="<%= house_expense_path(@house, expense) %>">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title"><%= expense.title %></h5>
+              </div>
+            </div>
+            </a>
+          <% end %>
+        <% else %>
+          <h4>No expenses created for this house yet.</h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
