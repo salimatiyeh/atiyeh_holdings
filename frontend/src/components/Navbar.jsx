@@ -13,8 +13,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -33,13 +31,11 @@ export default function Navbar() {
     <Box role="presentation">
       <List>
         <ListItem disablePadding>
-          {/* <Link to="/houses/new" basename="/"> */}
-            <ListItemButton component={ Link } to="/houses/new">
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Create House" />
-            </ListItemButton>
-          {/* </Link> */}
+          <ListItemButton component={ Link } to="/houses/new">
+            <ListItemIcon>
+            </ListItemIcon>
+            <ListItemText primary="Create House" />
+          </ListItemButton>
         </ListItem>
       </List>
       <Divider />
