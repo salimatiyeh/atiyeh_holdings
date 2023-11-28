@@ -13,12 +13,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -32,17 +29,20 @@ export default function Navbar() {
   const NavList = () => (
     <Box role="presentation">
       <List>
-        <ListItem disablePadding>
-          {/* <Link to="/houses/new" basename="/"> */}
-            <ListItemButton component={ Link } to="/houses/new">
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Create House" />
-            </ListItemButton>
-          {/* </Link> */}
+        <ListItem>
+          <ListItemButton component={Link} to="/houses/new">
+            <ListItemIcon></ListItemIcon>
+            <ListItemText primary="Create House" />
+          </ListItemButton>
+        </ListItem>
+        <Divider />
+        <ListItem>
+          <ListItemButton component={Link} to="/houses">
+            <ListItemIcon></ListItemIcon>
+            <ListItemText primary="Houses" />
+          </ListItemButton>
         </ListItem>
       </List>
-      <Divider />
     </Box>
   );
 
@@ -63,7 +63,7 @@ export default function Navbar() {
           <NavList />
         </Drawer>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          News
+          Atiyeh Holdings
         </Typography>
         <Button color="inherit">Login</Button>
       </Toolbar>
