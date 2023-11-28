@@ -37,6 +37,44 @@ const defaultHouseForm = {
 const NewHouseForm = () => {
   const navigate = useNavigate();
   const [editedHouse, setEditedHouse] = useState(defaultHouseForm);
+  const [house, setHouse] = useState({
+    name: "",
+    square_feet: "",
+    address: "",
+    rental_amount: "",
+    number_of_rooms: "",
+    number_of_bathrooms: "",
+    has_garage: false,
+    has_storm_shelter: false,
+    has_gas: false,
+    is_occupied: false,
+    photos: [],
+  });
+
+  async function onSave(housePayload) {
+    try {
+      const response = await fetch("http://localhost:3000/api/houses/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(housePayload),
+      });
+
+      if (!response.ok) {
+        console.error("Error creating house:", response.statusText);
+        return null;
+      }
+
+      const newHouse = await response.json();
+      console.log("House created successfully:", newHouse);
+
+      return newHouse;
+    } catch (error) {
+      console.error("Error creating house:", error.message);
+      return null;
+    }
+  }
 
   const handleCancel = () => {
     setEditedHouse(defaultHouseForm);
@@ -44,13 +82,13 @@ const NewHouseForm = () => {
   };
 
   const handleSave = () => {
-    // Implement the logic to save the editedHouse data
-    console.log("Save clicked:", editedHouse);
+    console.log("Save clicked:", house);
+    onSave(house);
   };
 
   const handleFieldChange = (field, value) => {
-    setEditedHouse((prevHouse) => ({
-      ...prevHouse,
+    setHouse((house) => ({
+      ...house,
       [field]: value,
     }));
   };

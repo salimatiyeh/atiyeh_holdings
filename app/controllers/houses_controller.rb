@@ -16,7 +16,6 @@ class HousesController < ApplicationController
 
   def index
     @houses = House.all
-
     @markers = @houses.geocoded.map do |house|
       {
         lat: house.latitude,
