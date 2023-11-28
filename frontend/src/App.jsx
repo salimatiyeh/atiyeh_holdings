@@ -11,7 +11,7 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-        <Box margin="15px">
+        <Box margin="15px auto" maxWidth="1440px">
           <Routes>
             <Route path="/houses/new" element={<NewHouseForm />} />
             <Route path="/houses/:id" element={<House />} />
