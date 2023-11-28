@@ -16,9 +16,13 @@ import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
 import AddHomeIcon from "@mui/icons-material/AddHome";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
+import { useTheme } from "@mui/material";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
-export default function Navbar() {
+export default function Navbar({ colorMode }) {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
 
   const handleClick = () => {
     setOpen(true);
@@ -71,6 +75,13 @@ export default function Navbar() {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Atiyeh Holdings
         </Typography>
+        <IconButton onClick={colorMode.toggleColorMode} color="inherit">
+          {theme.palette.mode === "dark" ? (
+            <Brightness7Icon />
+          ) : (
+            <Brightness4Icon />
+          )}
+        </IconButton>
         <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>
