@@ -14,6 +14,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
+import AddHomeIcon from "@mui/icons-material/AddHome";
+import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -31,14 +33,18 @@ export default function Navbar() {
       <List>
         <ListItem>
           <ListItemButton component={Link} to="/houses/new">
-            <ListItemIcon></ListItemIcon>
+            <ListItemIcon>
+              <AddHomeIcon />
+            </ListItemIcon>
             <ListItemText primary="Create House" />
           </ListItemButton>
         </ListItem>
         <Divider />
         <ListItem>
           <ListItemButton component={Link} to="/houses">
-            <ListItemIcon></ListItemIcon>
+            <ListItemIcon>
+              <HolidayVillageIcon />
+            </ListItemIcon>
             <ListItemText primary="Houses" />
           </ListItemButton>
         </ListItem>
