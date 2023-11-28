@@ -53,7 +53,7 @@ export default function Navbar() {
   );
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar>
         <IconButton
           size="large"
