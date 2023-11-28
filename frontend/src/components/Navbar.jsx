@@ -19,6 +19,7 @@ import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import { useTheme } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function Navbar({ colorMode }) {
   const [open, setOpen] = useState(false);
@@ -83,6 +84,9 @@ export default function Navbar({ colorMode }) {
           )}
         </IconButton>
         <Button color="inherit">Login</Button>
+        <IconButton>
+          <AccountCircleIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
